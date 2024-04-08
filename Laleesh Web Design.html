@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laleesh | Web Design</title>
+    <link rel = "stylesheet" href = styles.css>
+</head>
+<body>
+    <h1>Freelance Web Design Service.<br> Here to make your Vision a Reality!
+    </h1>
+
+    <p>
+        Freelance Web Designer Service for your business to help you grow your Brand Identity and close sales with a User friendly, Clean Website, optimised for SEO.
+    </p>
+
+    <div class="perspective-container">
+        <a href = "https://www.laleesh.com/web-design" id = "buttonRed" class = "button-red">
+            <span style="transform: skew(-60deg)">Web Design</span>
+        </a>
+        
+        <div id = "divButton" class = "div-button" style="display: none;">
+            <ul>
+                <li class="p-red">Custom-built website</li>
+                <li class="p-red">Embelished designs</li>
+                <li class="p-red">Unique visual assets</li>
+            </ul>
+        </div>
+    </div>
+
+<script>
+    const buttonRed = document.getElementById("buttonRed");
+    const divButton = document.getElementById("divButton");
+    let animationOver = false;
+    let mouseOut = false;
+
+    function animationSwing () {
+        divButton.classList.add("animationSwing");
+    }
+
+    buttonRed.addEventListener("mouseenter", () => {
+        divButton.style.display = "block";
+        mouseOut = false;
+        animationOver = false;
+        setTimeout (() => {animationSwing()}, 500);
+        console.log(setTimeout)
+
+        console.log(mouseOut, animationOver);
+    })
+
+buttonRed.addEventListener("mouseleave",
+function () {
+    mouseOut = true;
+    animationOver = false;
+
+    if (mouseOut === true) {
+        divButton.classList.add("animationRevSwing");
+
+    }
+        else {divButton.classList.remove("animationRevSwing")}
+        console.log(mouseOut, animationOver);
+    });
+
+        divButton.addEventListener("animationend",
+        function () {
+            animationOver = true;
+
+            console.log(mouseOut, animationOver);
+
+            if (animationOver === true && mouseOut === true) {
+                divButton.style.display = "none";
+                divButton.classList.remove("animationSwing");
+            }
+            animationOver = false;
+            mouseOut = false;
+            divButton.classList.remove("animationSwing");
+            divButton.classList.remove("animationRevSwing");
+        })
+
+
+
+
+        function scaleButtonRev () {
+    buttonRed.classList.add("scaleButtonRev");}
+
+    buttonRed.addEventListener("mouseenter", () => {
+        buttonRed.classList.add("scaleButton");
+        buttonRed.classList.remove("scaleButtonRev");
+    })
+
+
+   buttonRed.addEventListener("mouseleave", () => {
+   setTimeout (() => {scaleButtonRev ()}, 500)
+   buttonRed.classList.remove("scaleButton");
+        })
+        
+</script>
+
+</body>
+</html>
